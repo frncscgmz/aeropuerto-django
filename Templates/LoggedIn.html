@@ -1,0 +1,18 @@
+{% extends "Base.html" %}
+
+{% block title %}En sesion{% endblock %}
+
+{% block content %}
+
+	{% if user.is_authenticated %}
+  		<p>Bienvenido, {{ user.username }}. Gracias por entrar en sesion.</p>
+		<p>Ultima sesion: {{ user.last_login }} Fecha de registro: {{ user.date_joined }}</p>
+		<p><a href="/accounts/loggedout/">Salir de sesion</a></p>
+		<br>
+		<p><a href="/reservation/">Reserva un viaje!</a></p>
+
+	{% else %}
+		<p>Bienvenido, usuario nuevo. Por favor <a href="/accounts/login/">Entra en sesion</a> o <a href="/register/">registrate</a>.
+	{% endif %}
+
+{% endblock %}

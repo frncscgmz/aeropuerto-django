@@ -1,0 +1,12 @@
+{% extends "Base.html" %}
+
+{% block title %}Crea una cuenta{% endblock %}
+
+{% block content %}
+	<h1>Crea una cuenta.</h1>
+	<form action="." method="post">
+		{{ form.as_p }}
+		<input type="submit" value="Crear" />
+	</form>
+{% endblock %}
+

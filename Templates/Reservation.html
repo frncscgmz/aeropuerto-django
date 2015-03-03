@@ -1,0 +1,12 @@
+{% extends "Base.html" %}
+
+{% block title %}Reservacion de asiento{% endblock %}
+
+{% block content %}
+		<form action="." method="post">
+			{{ form.as_table }}
+			<input type="submit" value="Submit" id="Submit" />
+		</form>
+		<span id="Results">{{ results }}</span>
+{% endblock %}
+

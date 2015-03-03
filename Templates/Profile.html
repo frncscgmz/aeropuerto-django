@@ -1,0 +1,18 @@
+{% extends "Base.html" %}
+
+{% block title %}Perfil de Usuario.{% endblock %}
+
+	{% block content %}
+
+		<h2>Vuelos reservados:</h2>
+
+		{% if results%}
+			<ul>
+			{% for Reservacion in results%}
+				<li>{{Reservacion.destino}} Boletos: {{Reservacion.boletos}}{{escape }}</li>
+			{% endfor%}
+			</ul>
+		{% else%}
+			<p>No se encontraron resultados</p>
+		{% endif%}
+{% endblock %}	

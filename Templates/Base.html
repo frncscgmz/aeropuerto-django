@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>{% block title %}{% endblock %}</title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<link rel="stylesheet" media="all" type="text/css" href="/sitemedia/css/default.css" />
+<script type="text/javascript" src="/sitemedia/css/jquery/jquery-1.4.2.min.js"></script>
+<script type="text/javascript" src="/sitemedia/css/jquery/jquery.slidertron-0.1.js"></script>
+</head>
+<body>
+<div id="header">
+	<div id="logo">
+		<h1><a href="/home/">Crash n' <font color="red">Burn</font> </a></h1>
+		<p><em>3 de cada 5 vuelos llegan seguros.</a></em></p>
+	</div>
+	<!-- end #logo -->
+	<div id="menu">
+		<ul>
+			<li class="current_page_item"><a href="/home/" class="first">Home</a></li>
+			<li><a href="/search/">Busqueda</a></li>
+			<li><a href="/about/">About</a></li>
+			<li><a href="/contact/">Contacto</a></li>
+		</ul>
+	</div>
+	<!-- end #menu -->
+	
+
+</div>
+<!-- end #header -->
+<!-- end #header-wrapper -->
+
+<div id="page">
+	<div id="content">
+		<div id="content-bgtop">
+			<div id="content-bgbtm">
+				<div class="post">
+					<h2 class="title"><a href="/home/">Vuelos a todo el mundo</a></h2>
+					<div class="entry">
+					{% block content %}{% endblock %}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- end #content -->
+
+	<div id="sidebar">
+		<ul>
+			{% if user.is_authenticated %}
+			<li>
+				<h2>Opciones de usuario</h2>
+				<ul>
+					<li><a href="/reservation/">Reservacion</a></li>
+					<li><a href="/profile/">Perfil</a></li>
+					<li><a href="/logout/">Logout</a></li>
+				</ul>
+			</li>
+			{% endif %}
+		</ul>
+	</div>
+	<!-- end #sidebar -->
+
+	<div style="clear: both;">&nbsp;</div>
+	<!-- end #page -->
+
+	<div id="footer">
+		{% block footer %}
+			<hr>
+				{% if user.is_anonymous %}
+					<p><a href="/admin/">Acceso de staff.</a>
+				{% endif %}
+				<p>Gracias por visitar nuestro sitio.</p>
+			{% endblock %}
+	</div>
+	<!-- end #footer -->
+</div>
+</body>
+</html>

@@ -1,0 +1,26 @@
+{% extends "Base.html" %}
+
+{% block title %}Busqueda{% if query%} Resultados{% endif%}{% endblock %}
+
+	{% block content %}
+	<h1>Busqueda</h1>
+	<form action="." method="GET">
+	<label for="q">Busqueda: </label>
+	<input type="text" name="q" value="{{ query|escape }}">
+	<input type="submit" value="Search">
+	</form>
+
+	{% if query%}
+		<h2>Resultados para "{{ query|escape }}":</h2>
+
+		{% if results%}
+			<ul>
+			{% for destinos in results%}
+				<li>{{destinos.nombre}} Salida: {{destinos.fecha_partida}} Arrivo:{{destinos.fecha_llegada}} {{ escape }}</li>
+			{% endfor%}
+			</ul>
+		{% else%}
+			<p>No se encontraron resultados</p>
+		{% endif%}
+	{% endif%}
+{% endblock %}	

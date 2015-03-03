@@ -1,0 +1,21 @@
+{% extends "Base.html" %}
+
+{% block title %}Acceso de usuarios{% endblock %}
+
+{% block content %}
+
+	{% if form.errors %}
+		<p class="error">Nombre de usuario o password invalido.</p>
+	{% endif %}
+
+	<form action='.' method='post'>
+		<label for="username">Usuario:</label>
+		<input type="text" name="username" value="" id="username">
+    	<label for="password">Password:</label>
+		<input type="password" name="password" value="" id="password">
+		<input type="submit" value="Login" />
+		<input type="hidden" name="next" value="{{ next|escape }}" />
+	<form action='.' method='post'>
+
+{% endblock %}
+
